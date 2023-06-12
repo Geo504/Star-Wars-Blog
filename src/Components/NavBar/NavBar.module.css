@@ -1,0 +1,32 @@
+.navbar{
+  background-color: black;
+  box-shadow: 0 0 6px white;
+}
+
+.navbarBrand{
+  border-bottom: 0.125rem solid transparent;
+  font-weight: bold;
+}
+.navbarBrand:hover{
+  border-bottom: 0.125rem solid #ffffff;
+}
+
+.liDropdown{
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.liDropdown:hover{
+  background-color: #2b3035;
+}
+
+.dropdownItem{
+  padding: 0.3rem 0;
+  width: auto;
+  flex-grow: 1;
+}
+
+.iconNavBar{
+  font-size: 1.3rem;
+}
