@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 
 import {useResourses} from "../Hooks/useResourses"
 
@@ -47,28 +47,9 @@ export const AppProvider = ({children}) => {
   }
 
   const deleteFavorite = (id) =>{
-    const updateCharacters = characters.filter((item)=>{
-      if(item._id === id){
-        item.favorite = !item.favorite;
-      }
-      return item;
-    });
-    const updatePlanets = planets.filter((item)=>{
-      if(item._id === id){
-        item.favorite = !item.favorite;
-      }
-      return item;
-    });
-    const updateVehicles = vehicles.filter((item)=>{
-      if(item._id === id){
-        item.favorite = !item.favorite;
-      }
-      return item;
-    });
-    setCharacter(updateCharacters);
-    setPlanets(updatePlanets);
-    setVehicles(updateVehicles);
-    handleFavorites();
+    switchFavoritesCharacter(id);
+    switchFavoritesPlanets(id);
+    switchFavoritesVehicles(id);
   }
 
   const handleFavorites = () =>{
