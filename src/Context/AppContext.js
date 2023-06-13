@@ -1,39 +1,16 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
-import { apiCall } from "../Utils/apiCall";
-import { getResources } from "../Services/getResources";
-import {characterData, planetsData} from '../Components/data'
+import {useResourses} from "../Hooks/useResourses"
 
 
 const AppContext = createContext();
 
 export const AppProvider = ({children}) => {
-  const [characters, setCharacter]=useState(characterData);
-  const [planets, setPlanets]=useState([]);
-  const [vehicles, setVehicles] = useState([]);
+  const [characters, setCharacter]=useResourses('people');
+  const [planets, setPlanets]=useResourses('planets');
+  const [vehicles, setVehicles]=useResourses('vehicles');
+
   const [favorites, setFavorites] = useState([]);
-
-  useEffect(()=>{
-    const fetchData = async () => {
-      const peopleUrls = await getResources('people');
-      const planetsUrls = await getResources('planets');
-      const vehiclesUrls = await getResources('vehicles');
-
-      const peopleResponse = await Promise.all(peopleUrls.results.map(character => apiCall(character.url)));
-      const planetsResponse = await Promise.all(planetsUrls.results.map(character => apiCall(character.url)));
-      const vehiclesResponse = await Promise.all(vehiclesUrls.results.map(character => apiCall(character.url)));
-
-      const peopleList = peopleResponse.map(character=> character.result);
-      const planetList = planetsResponse.map(character=> character.result);
-      const vehicleList = vehiclesResponse.map(character=> character.result);
-
-      setCharacter(peopleList.map(character=>({favorite: false, ...character})));
-      setPlanets(planetList.map(planet=>({favorite: false, ...planet})));
-      setVehicles(vehicleList.map(vehicles=>({favorite: false, ...vehicles})));
-    }
-    
-    fetchData();
-  }, [])
 
 
   const switchFavoritesCharacter = (id) =>{
@@ -103,10 +80,8 @@ export const AppProvider = ({children}) => {
     setFavorites(favoritesList);
   }
 
-
-
   const store = useMemo(()=>{
-    return {characters, planets, vehicles, favorites}
+    return  {characters, planets, vehicles, favorites}
   },[characters, planets, vehicles]);
 
   const actions = {

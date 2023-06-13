@@ -2,7 +2,7 @@ import React from 'react'
 
 import style from './DiscriptionCharacter.module.css'
 
-export const DiscriptionCharacter = ({uid ,character}) => {
+export const DiscriptionCharacter = ({id ,character}) => {
   const {name, gender, height, mass, skin_color, birth_year} = character;
 
   return (
@@ -12,7 +12,7 @@ export const DiscriptionCharacter = ({uid ,character}) => {
       <div className="row g-0">
 
         <div className="col-md-8">
-          <img src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`} className={`${style.img} img-fluid rounded-start`} />
+          <img src={`../assets/characters/${id}.jpg`} className={`${style.img} img-fluid rounded-start`} />
         </div>
 
         <div className={`${style.cardBody} col-md-4`}>

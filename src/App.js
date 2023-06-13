@@ -15,7 +15,7 @@ function App() {
       <NavBar />
 
       <Routes>
-        { routes.map(route=> <Route {...route} />) }
+        { routes.map(route=> <Route {...route} key={route.path} />) }
       </Routes>
 
       <Footer text="Copyright © Geovanny Valladares 2023"/>

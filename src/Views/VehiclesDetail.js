@@ -16,7 +16,7 @@ export const VehicleDetail = () => {
             return (
               <DiscriptionVehicle 
                 key={item._id}
-                uid={item.uid} 
+                id={item._id} 
                 vehicle={item.properties}
               />
             )};

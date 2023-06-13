@@ -2,7 +2,7 @@ import React from 'react'
 
 import style from './DiscriptionVehicle.module.css'
 
-export const DiscriptionVehicle = ({uid , vehicle}) => {
+export const DiscriptionVehicle = ({id , vehicle}) => {
   const {model, max_atmosphering_speed, crew, cargo_capacity, cost_in_credits, length} = vehicle;
 
   return (
@@ -12,7 +12,7 @@ export const DiscriptionVehicle = ({uid , vehicle}) => {
       <div className="row g-0">
 
         <div className="col-md-8">
-          <img src={`https://starwars-visualguide.com/assets/img/vehicles/${uid}.jpg`} className={`${style.img} img-fluid rounded-start`} />
+          <img src={`../assets/vehicles/${id}.jpg`} className={`${style.img} img-fluid rounded-start`} />
         </div>
 
         <div className={`${style.cardBody} col-md-4`}>

@@ -16,7 +16,7 @@ export const CharacterDetail = () => {
             return (
               <DiscriptionCharacter 
                 key={item._id}
-                uid={item.uid} 
+                id={item._id} 
                 character={item.properties}
               />
             )};

@@ -16,7 +16,7 @@ export const PlanetDetail = () => {
             return (
               <DiscriptionPlanet 
                 key={item._id}
-                uid={item.uid}
+                id={item._id}
                 planet={item.properties}
               />
               )

@@ -2,7 +2,7 @@ import React from 'react'
 
 import style from './DiscriptionPlanet.module.css'
 
-export const DiscriptionPlanet = ({uid ,planet}) => {
+export const DiscriptionPlanet = ({id ,planet}) => {
   const {name, population, diameter, terrain, climate, surface_water} = planet;
 
   return (
@@ -12,7 +12,7 @@ export const DiscriptionPlanet = ({uid ,planet}) => {
       <div className="row g-0">
 
         <div className="col-md-8">
-          <img src={`https://starwars-visualguide.com/assets/img/planets/${uid}.jpg`} className={`${style.img} img-fluid rounded-start`} />
+          <img src={`../assets/planets/${id}.jpg`} className={`${style.img} img-fluid rounded-start`} />
         </div>
 
         <div className={`${style.cardBody} col-md-4`}>
